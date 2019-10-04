@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int	ft_atoi(char *str)
+{
+  int	i;
+  int	a;
+  int	merkki;
+
+  merkki = 1;
+  a = 0;
+  i = 0;
+  while (str[i] == '\n' || str[i] == ' ' || str[i] == '\t' || str[i] == '\v'
+	 || str[i] == '\f' || str[i] == 'r')
+    i++;
+  if (str[i] == '-')
+    {
+      merkki = -merkki;
+      i++;
+    }
+  else if (str[i] == '+')
+    i++;
+  while (str[i] >= '0' && str[i] <= '9')
+    {
+      a = a * 10 + str[i] - '0';
+      i++;
+    }
+  return (a * merkki);
+}
+
+int	main(void)
+{
+  printf("%d", ft_atoi("  +1234"));
+  return (0);
+}
